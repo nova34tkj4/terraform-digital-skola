@@ -1,3 +1,8 @@
+variable "google_credentials" {
+  description = "The JSON credentials for the Google Cloud service account."
+  type        = string
+}
+
 provider "google" {
   credentials = jsondecode(var.google_credentials)  # Decodes the JSON content
   project     = "ftde-batch-4"
