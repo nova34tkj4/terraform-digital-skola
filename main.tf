@@ -1,12 +1,7 @@
-variable "GOOGLE_CREDENTIALS" {
-  type        = string
-  description = "The JSON credentials for the Google Cloud service account."
-}
-
 provider "google" {
-  credentials = jsondecode(var.GOOGLE_CREDENTIALS)
-  project = "ftde-batch-4"
-  region  = "us-central1"  # Replace with the desired GCP region
+  credentials = jsondecode(var.google_credentials)  # Decodes the JSON content
+  project     = "ftde-batch-4"
+  region      = "us-central1"
 }
 
 resource "google_storage_bucket" "my_bucket" {
